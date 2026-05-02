@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasuki K | Premium Web Solutions & Data Intelligence</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">VASUKI K</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Building <span class="gradient"> High-Performance Websites & Data Intelligence</span> for Growing Businesses</h1>
+            <p class="hero-sub">I specialize in high-converting frontend experiences and intelligent data dashboards that turn visitors into long-term customers.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Start Your Project</a>
+                <a href="#projects" class="btn btn-secondary">View Case Studies</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="title">Strategic Services</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="icon">🚀</span>
+                <h3>SaaS & Web Development</h3>
+                <p>Custom-built, SEO-optimized frontends that load in under 1 second. Focused on performance, accessibility, and high conversion rates.</p>
+                <div class="result-tag">✓ Outcome: Better Google Rankings</div>
+            </div>
+            <div class="card">
+                <span class="icon">📊</span>
+                <h3>Data Intelligence</h3>
+                <p>Interactive Power BI and Python-driven dashboards that reveal hidden profit leaks and growth opportunities in your business data.</p>
+                <div class="result-tag">✓ Outcome: Data-Driven Decisions</div>
+            </div>
+            <div class="card">
+                <span class="icon">🎨</span>
+                <h3>Conversion Design</h3>
+                <p>UI/UX design focused specifically on User Psychology to guide visitors effortlessly toward your call-to-action.</p>
+                <div class="result-tag">✓ Outcome: Higher Sales Velocity</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="title">Featured Work</h2>
+        <div class="grid">
+            <div class="project-card">
+                <h4>📈 Executive Sales Intelligence</h4>
+                <p>Built a comprehensive Python & Power BI dashboard for 25,000+ orders to visualize peak performance periods.</p>
+                <a href="https://github.com/K-Vasuki/Sales-Performance-Analysis" class="project-link" target="_blank">View Analysis →</a>
+            </div>
+            <div class="project-card">
+                <h4>👨‍💼 HR Retention Engine</h4>
+                <p>Advanced SQL analytics to identify attrition patterns, resulting in a 25% clearer visibility into high-risk employee groups.</p>
+                <a href="https://github.com/K-Vasuki/HR-Analysis" class="project-link" target="_blank">View Case Study →</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="title">Let's Build Something Great</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <form id="portfolioForm">
+                    <input type="text" id="name" placeholder="Full Name" required>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                    <textarea id="message" placeholder="Tell me about your project goals..." required></textarea>
+                    <button type="submit" class="submit-btn">Send Proposal</button>
+                </form>
+                <p id="formStatus" style="margin-top: 15px; font-size: 0.9rem;"></p>
+            </div>
+            <div class="contact-details">
+                <h3>Direct Contact</h3>
+                <p style="margin: 20px 0; color: var(--text-dim);">Ready to discuss your project? I typically respond within 12 hours.</p>
+                <p>📧 <strong>2003vasuki@gmail.com</strong></p>
+                <p>📍 <strong>Chennai, India / Remote Worldwide</strong></p>
+                <div style="margin-top: 30px;">
+                    <a href="https://www.linkedin.com/in/vasukik/" class="btn btn-secondary" style="margin: 0; padding: 10px 20px;">LinkedIn Profile</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Vasuki K | High-Impact Development & Analytics</p>
+    </footer>
+
+    <script>
+        /* --- JAVASCRIPT --- */
+
+        // 1. Scroll Reveal Animation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // 2. Form Handling
+        const form = document.getElementById("portfolioForm");
+        const status = document.getElementById("formStatus");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            status.innerText = "Connecting to mail client...";
+            status.style.color = "var(--primary)";
+
+            const subject = encodeURIComponent(`Inquiry from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nProject Brief:\n${message}`);
+
+            setTimeout(() => {
+                window.location.href = `mailto:2003vasuki@gmail.com?subject=${subject}&body=${body}`;
+                status.innerText = "Email drafted! Please hit send in your mail app.";
+                form.reset();
+            }, 800);
+        });
+
+        // 3. Simple Navbar Background Change on Scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = "15px 8%";
+                nav.style.background = "rgba(7, 11, 20, 0.95)";
+            } else {
+                nav.style.padding = "20px 8%";
+                nav.style.background = "rgba(7, 11, 20, 0.7)";
+            }
+        });
+    </script>
+</body>
+</html>
